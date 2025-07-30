@@ -32,14 +32,14 @@ app.post("/parse", upload.single("file"), async (req, res) => {
     if (!req.file) {
       return res.status(400).json({ error: "No file uploaded" }); // returns 400 if no file is uploaded
     }
-    
+
     // make POST request to APILayer
     const response = await axios.post(
       "https://api.apilayer.com/resume_parser/upload",
-      req.file.buffer, // APILayer only accepts raw file 
+      req.file.buffer, // APILayer only accepts raw file
       {
         headers: {
-          "apikey": apiKey,
+          apikey: apiKey,
           "Content-Type": "application/octet-stream",
         },
       }
@@ -53,7 +53,7 @@ app.post("/parse", upload.single("file"), async (req, res) => {
 
 // static file serving and catch-all route for frontend
 app.use(express.static(path.join(__dirname, "client"))); // for static frontend deployment to Render
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "index.html"));
 });
 

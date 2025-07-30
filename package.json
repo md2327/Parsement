@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "npm run dev --prefix client",
     "build": "npm run build:client && npm run copy:client",
     "build:client": "npm run build --prefix client",
-    "copy:client": "copyfiles -u 1 client/dist/**/* server/public",
+    "copy:client": "copyfiles -u 1 client/dist/**/* server/client",
     "start": "node server/server.js"
   },
   "dependencies": {
