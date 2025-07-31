@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import React, { useState, createContext } from "react";
 import { Import } from "/src/components/Import/Import";
 import { Parser } from "/src/components/Parser/Parser";
 import { Progressbar } from "/src/components/Progressbar/Progressbar";

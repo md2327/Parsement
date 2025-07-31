@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { AccuracyContext } from "./Accuracybar";
 import { Accuracybar } from "./Accuracybar";
 import { animateScroll } from "react-scroll";
@@ -25,15 +25,16 @@ export const Results = ({
   const parseResume = async (fileContent) => {
     setIsParsing(true);
     setError(null);
-    
+
     try {
       // create FormData to send file to backend
       const formData = new FormData();
-      formData.append('file', fileContent);
-      
+      formData.append("file", fileContent);
+
       // makes POST request to backend
       const response = await axios.post(
-        "http://localhost:8080/parse", formData
+        "http://localhost:8080/parse",
+        formData
       );
       setParsedData(response.data); // set parsed data
       setAccuracyApi(true);
